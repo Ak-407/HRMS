@@ -27,26 +27,51 @@
   color: var(--gray-500);
   box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
-.ticker {
-  width: 100%;
-  overflow: hidden;
-  white-space: nowrap;
-  box-sizing: border-box;
+.noticeWrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.noticeBox {
+  position: relative;
   background-color: red;
   color: white;
-  padding: 8px 0;
-  font-weight: bold;
+  padding: 10px 40px 10px 20px;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 60%;
+  min-width: 300px;
 }
 
-.ticker {
-  animation: scrollText 12s linear infinite;
+.noticeText {
+  display: inline-block;
+  white-space: nowrap;
+  animation: moveLeftRight 4s ease-in-out infinite alternate;
+  font-weight: 500;
 }
 
-@keyframes scrollText {
-  0% {
-    transform: translateX(100%);
+.closeBtn {
+  position: absolute;
+  right: 10px;
+  top: 8px;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.closeBtn:hover {
+  opacity: 0.8;
+}
+
+@keyframes moveLeftRight {
+  from {
+    transform: translateX(-10px);
   }
-  100% {
-    transform: translateX(-100%);
+  to {
+    transform: translateX(10px);
   }
 }
+
