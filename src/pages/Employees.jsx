@@ -8,6 +8,7 @@ function Employees() {
   const [employees, setEmployees] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [showNotice, setShowNotice] = useState(true);
 
   const fetchEmployees = async () => {
     setLoading(true);
@@ -31,7 +32,11 @@ function Employees() {
       await API.post('/employees/', formData);
       fetchEmployees();
     } catch (err) {
-      setError(err.response?.data?.email?.[0] || err.response?.data?.employee_id?.[0] || 'Error adding employee.');
+      setError(
+        err.response?.data?.email?.[0] ||
+        err.response?.data?.employee_id?.[0] ||
+        'Error adding employee.'
+      );
     }
   };
 
@@ -46,12 +51,30 @@ function Employees() {
 
   return (
     <div className={styles.page}>
+
+      {/* 🔴 Moving Notice */}
+      {showNotice && (
+        <div className={styles.noticeWrapper}>
+          <div className={styles.noticeBox}>
+            <span className={styles.noticeText}>
+              Backend is hosted on Render, might take some time to load employees
+            </span>
+            <button
+              className={styles.closeBtn}
+              onClick={() => setShowNotice(false)}
+            >
+              ✕
+            </button>
+          </div>
+        </div>
+      )}
+
       <h1 className={styles.title}>Employees</h1>
-      <div className={styles.ticker}>
-  Backend is hosted on Render, might take some time to load employees
-</div>
+
       {error && <div className={styles.error}>{error}</div>}
+
       <EmployeeForm onAdd={handleAdd} />
+
       {loading ? (
         <div className={styles.skeleton}>Loading employees...</div>
       ) : (
