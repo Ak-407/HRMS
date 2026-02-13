@@ -27,3 +27,26 @@
   color: var(--gray-500);
   box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
+.ticker {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  box-sizing: border-box;
+  background-color: red;
+  color: white;
+  padding: 8px 0;
+  font-weight: bold;
+}
+
+.ticker {
+  animation: scrollText 12s linear infinite;
+}
+
+@keyframes scrollText {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
