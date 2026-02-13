@@ -47,6 +47,9 @@ function Employees() {
   return (
     <div className={styles.page}>
       <h1 className={styles.title}>Employees</h1>
+      <div className={styles.ticker}>
+  Backend is hosted on Render, might take some time to load employees
+</div>
       {error && <div className={styles.error}>{error}</div>}
       <EmployeeForm onAdd={handleAdd} />
       {loading ? (
