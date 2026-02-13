@@ -1,0 +1,29 @@
+.page {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--gray-900);
+  margin-bottom: 1.5rem;
+}
+
+.error {
+  background-color: #fee2e2;
+  border-left: 4px solid var(--danger);
+  color: #b91c1c;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.skeleton {
+  background: white;
+  border-radius: 0.75rem;
+  padding: 2rem;
+  text-align: center;
+  color: var(--gray-500);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
