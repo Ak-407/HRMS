@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import Layout from './components/Layout';
 import Employees from './pages/Employees';
 import Attendance from './pages/Attendance';
@@ -13,6 +14,7 @@ function App() {
           <Route path="attendance" element={<Attendance />} />
         </Route>
       </Routes>
+      <SpeedInsights />
     </BrowserRouter>
   );
 }
